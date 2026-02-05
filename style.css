@@ -54,7 +54,9 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("../assets/tv.png") center / 100% 100% no-repeat;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg")
+    center / 100% 100% no-repeat;
+    /* background: url("../assets/tv.png") center / 100% 100% no-repeat; */
     pointer-events: none;
     z-index: 5;
 }
