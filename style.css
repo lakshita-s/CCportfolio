@@ -542,3 +542,26 @@ a {
     z-index: 6; 
     position: relative; 
 }
+.project-layout-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 24px;
+}
+
+.project-layout-vertical .project-title-600,
+.project-layout-vertical .project-body {
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+}
+
+.project-layout-vertical .project-frame-600 {
+  flex-shrink: 0;
+}
+
+.project-layout-vertical iframe {
+  display: block;
+  border: none;
+}
