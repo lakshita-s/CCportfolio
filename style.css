@@ -574,3 +574,16 @@ a {
   display: block;
   border: none;
 }
+
+.content-page {
+  padding-bottom: 200px;
+}
+
+.content-page iframe {
+  display: block;
+  margin: 0 auto 32px auto;
+}
+
+.content-page p {
+  margin-bottom: 32px;
+}
