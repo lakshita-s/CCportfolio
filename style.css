@@ -588,3 +588,21 @@ a {
 .content-page p {
   margin-bottom: 32px;
 }
+.guide-item {
+    background: transparent;
+    border: none;
+    margin-top: 3%;
+    padding: 0.1%;
+    font-size: 0.75em; /* smaller so it fits */
+    color: #300b0b;
+    opacity: 0.9;
+    text-align: center;
+    cursor: pointer;
+    justify-content: center;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 10;
+    white-space: nowrap; /* stops wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
