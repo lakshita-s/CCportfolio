@@ -6,6 +6,110 @@
   <title>Creative Coding 2 — Lakshita Sethi</title>
   <link rel="stylesheet" href="https://use.typekit.net/crk2gwy.css">
   <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .carousel-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      font-family: "pixelify-sans", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: #300b0b;
+      text-transform: uppercase;
+      white-space: nowrap;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .carousel-slides {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .carousel-slide.active {
+      display: flex;
+    }
+
+    .carousel-slide iframe {
+      flex: 1;
+      height: 500px;
+      border: none;
+      width: 100%;
+    }
+
+    .carousel-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #300b0b;
+      padding: 0 8px;
+      font-family: "pixelify-sans", sans-serif;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn:hover { opacity: 0.6; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #300b0b;
+      opacity: 0.3;
+      cursor: pointer;
+      border: none;
+    }
+
+    .carousel-dot.active { opacity: 1; }
+
+    /* bigger prototype grid */
+    .proto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 32px;
+      padding: 0 5%;
+    }
+
+    .proto-grid iframe {
+      width: 100%;
+      aspect-ratio: 1;
+      border: none;
+    }
+  </style>
 </head>
 <body>
   <div class="tv-container">
@@ -17,75 +121,93 @@
         <a href="../cc2.html" class="nav-btn active">CC2</a>
         <a href="../about.html" class="nav-btn about-btn">ABOUT</a>
       </nav>
-     <main class="screen-container">
-  <div class="screen">
-    <div class="content-page">
-      <h2>Interactive Typography</h2>
-      <p style="padding-bottom: 10px; padding-left: 5%">
-        interactive typography experiments using music as inspiration!
-      </p>
 
-      <div style="display: flex; justify-content: center; margin-bottom: 32px;">
-        <iframe src="https://lakshita-s.github.io/everything-eats-and-is-eaten/"
-          style="width: 600px; height: 600px; border: none;"></iframe>
-      </div>
+      <main class="screen-container">
+        <div class="screen">
+          <div class="content-page">
+            <h2>Interactive Typography</h2>
+            <p style="padding-bottom: 10px; padding-left: 5%">
+              interactive typography experiments using music as inspiration!
+            </p>
 
-      <div style="display: flex; justify-content: center; margin-bottom: 32px;">
-        <iframe src="https://lakshita-s.github.io/weird-fishes-arpeggi/"
-          style="width: 600px; height: 600px; border: none;"></iframe>
-      </div>
+            <!-- carousel -->
+            <div class="carousel">
+              <button class="carousel-btn" onclick="moveCarousel(-1)">←</button>
+              <div class="carousel-slides" id="carouselSlides">
 
-      <div style="display: flex; justify-content: center; margin-bottom: 32px;">
-        <iframe src="https://lakshita-s.github.io/disorder/"
-          style="width: 600px; height: 600px; border: none;"></iframe>
-      </div>
+                <div class="carousel-slide active">
+                  <span class="carousel-label">everything eats and is eaten-adrianne lenker</span>
+                  <iframe src="https://lakshita-s.github.io/everything-eats-and-is-eaten/"></iframe>
+                </div>
 
-      <p style="padding-bottom: 10px; padding-left: 5%">prototypes,,, </p>
+                <div class="carousel-slide">
+                  <span class="carousel-label">weird fishes arpeggi-radiohead</span>
+                  <iframe src="https://lakshita-s.github.io/weird-fishes-arpeggi/"></iframe>
+                </div>
 
-      <div style="
-        display: grid;
-        grid-template-columns: repeat(3, 200px);
-        grid-template-rows: repeat(3, 200px);
-        gap: 12px;
-        justify-content: center;
-        margin-bottom: 32px;
-      ">
-        <iframe src="https://editor.p5js.org/laksh1ta/full/5vYc4My2C"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/aSx9CDoBp"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/yJ60qWudX"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/o_mwK2G4E"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/0TxDV-q8_"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/Ke9zx7bnd"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/v5bSj1FhY"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/l1RqW9o-6"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        <iframe src="https://editor.p5js.org/laksh1ta/full/j8KAcZsxF"
-          style="width: 200px; height: 200px; border: none;"></iframe>
-        
-      </div>
-      
-    </div>
-  </div>
-</main>
+                <div class="carousel-slide">
+                  <span class="carousel-label">disorder-joy division</span>
+                  <iframe src="https://lakshita-s.github.io/disorder/"></iframe>
+                </div>
+
+              </div>
+              <button class="carousel-btn" onclick="moveCarousel(1)">→</button>
+            </div>
+
+            <div class="carousel-dots">
+              <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+              <button class="carousel-dot" onclick="goToSlide(1)"></button>
+              <button class="carousel-dot" onclick="goToSlide(2)"></button>
+            </div>
+
+            <p style="padding-bottom: 10px; padding-left: 5%">prototypes,,, </p>
+
+            <div class="proto-grid">
+              <iframe src="https://editor.p5js.org/laksh1ta/full/5vYc4My2C"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/aSx9CDoBp"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/yJ60qWudX"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/o_mwK2G4E"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/0TxDV-q8_"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/Ke9zx7bnd"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/v5bSj1FhY"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/l1RqW9o-6"></iframe>
+              <iframe src="https://editor.p5js.org/laksh1ta/full/j8KAcZsxF"></iframe>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
       <aside class="right-nav">
         <div class="tv-guide-header">TV GUIDE</div>
         <div class="guide-list">
-        <a href="./interactive-typography.html" class="guide-item active">Interactive Typography</a>
-                    <a href="./experimental-camera" class="guide-item active">Experimental Camera</a>
-                    <a href="./tns-supply-exchange.html" class="guide-item active">TNS Supply Exchange</a>
-                                        <a href="./the-craft-stock.html" class="guide-item active">The Craft Stock</a>
+          <a href="./interactive-typography.html" class="guide-item active">Interactive Typography</a>
+          <a href="./experimental-camera" class="guide-item active">Experimental Camera</a>
+          <a href="./tns-supply-exchange.html" class="guide-item active">TNS Supply Exchange</a>
+          <a href="./the-craft-stock.html" class="guide-item active">The Craft Stock</a>
           <a href="../secret.html" class="guide-item secret-item">************</a>
         </div>
       </aside>
       <a href="../index.html" class="power-btn"></a>
     </div>
   </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function moveCarousel(dir) {
+      goToSlide(current + dir);
+    }
+  </script>
 </body>
 </html>
