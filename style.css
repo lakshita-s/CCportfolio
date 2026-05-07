@@ -593,7 +593,7 @@ a {
     border: none;
     margin-top: 3%;
     padding: 0.1%;
-    font-size: 0.75em; /* smaller so it fits */
+    font-size: 0.85em; /* smaller so it fits */
     color: #300b0b;
     opacity: 0.9;
     text-align: center;
