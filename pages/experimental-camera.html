@@ -6,6 +6,67 @@
   <title>Adv CC</title>
   <link rel="stylesheet" href="https://use.typekit.net/crk2gwy.css">
   <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .iframe-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .fullscreen-btn {
+      position: absolute;
+      top: -24px;
+      left: calc(50% - 320px); /* lines up with left edge of 640px iframe */
+      font-family: "pixelify-sans", sans-serif;
+      font-size: 11px;
+      background: #8b2a2a;
+      color: #f0e0c0;
+      border: none;
+      padding: 4px 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 3px;
+      z-index: 10;
+    }
+
+    .fullscreen-btn:hover { background: #a33; }
+
+    .tv-fullscreen-overlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background: black;
+    }
+
+    .tv-fullscreen-overlay.active { display: block; }
+
+    .tv-fullscreen-overlay iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .tv-fullscreen-close {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      font-family: "pixelify-sans", sans-serif;
+      font-size: 11px;
+      background: #8b2a2a;
+      color: #f0e0c0;
+      border: none;
+      padding: 4px 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 3px;
+      z-index: 7;
+    }
+  </style>
 </head>
 <body>
   <div class="tv-container">
@@ -17,44 +78,56 @@
         <a href="../cc2.html" class="nav-btn active">CC2</a>
         <a href="../about.html" class="nav-btn about-btn">ABOUT</a>
       </nav>
-     <main class="screen-container">
-  <div class="screen">
-    <div class="content-page">
-      <h2>Experimental Camera</h2>
-      <p style="padding-bottom: 10px; padding-left: 5%; padding-right: 5%">
-        an experimental camera using ml5.js models (FaceMesh and BodyPoze-BlazePoze) to make a commentary on the objectification of women in society. meant to be used by men, or people who participate in this objectification, it crudely assigns negative and positive points to facial features, points out parts of the female body that are most sexualized, and gives a "sex appeal" score to the user. everything is entirely randomized, as the point is not to judge the user, but to judge this facet of society; an ongoing struggle that women face. 
-      </p>
 
-      <div style="display: flex; justify-content: center; margin-bottom: 32px;">
-        <iframe src="https://lakshita-s.github.io/experimental-camera/"
-          style="width: 640px; height: 480px; border: none;"></iframe>
-      </div>
+      <main class="screen-container">
 
-      
-      <!-- <div style="
-        display: grid;
-        grid-template-columns: repeat(3, 200px);
-        grid-template-rows: repeat(3, 200px);
-        gap: 12px;
-        justify-content: center;
-        margin-bottom: 32px;">
-      </div> -->
-      
-    </div>
-  </div>
-</main>
+        <!-- fullscreen overlay -->
+        <div class="tv-fullscreen-overlay" id="tvOverlay">
+          <button class="tv-fullscreen-close" onclick="closeTV()">✕ close</button>
+          <iframe id="tvOverlayFrame" src=""></iframe>
+        </div>
+
+        <div class="screen">
+          <div class="content-page">
+            <h2>Experimental Camera</h2>
+            <p style="padding-bottom: 10px; padding-left: 5%; padding-right: 5%">
+              an experimental camera using ml5.js models (FaceMesh and BodyPoze-BlazePoze) to make a commentary on the objectification of women in society. meant to be used by men, or people who participate in this objectification, it crudely assigns negative and positive points to facial features, points out parts of the female body that are most sexualized, and gives a "sex appeal" score to the user. everything is entirely randomized, as the point is not to judge the user, but to judge this facet of society; an ongoing struggle that women face. 
+            </p>
+
+            <div class="iframe-wrapper">
+              <button class="fullscreen-btn" onclick="openTV(this)">⛶ full screen</button>
+              <iframe src="https://lakshita-s.github.io/experimental-camera/"
+                style="width: 640px; height: 480px; border: none;"></iframe>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
       <aside class="right-nav">
         <div class="tv-guide-header">TV GUIDE</div>
         <div class="guide-list">
-           <a href="./interactive-typography.html" class="guide-item active">Interactive Typography</a>
-                    <a href="./experimental-camera" class="guide-item active">Experimental Camera</a>
-                    <a href="./tns-supply-exchange.html" class="guide-item active">TNS Supply Exchange</a>
-                                        <a href="./the-craft-stock.html" class="guide-item active">The Craft Stock</a>
-
+          <a href="./interactive-typography.html" class="guide-item active">Interactive Typography</a>
+          <a href="./experimental-camera" class="guide-item active">Experimental Camera</a>
+          <a href="./tns-supply-exchange.html" class="guide-item active">TNS Supply Exchange</a>
+          <a href="./the-craft-stock.html" class="guide-item active">The Craft Stock</a>
         </div>
       </aside>
       <a href="../index.html" class="power-btn"></a>
     </div>
   </div>
+
+  <script>
+    function openTV(btn) {
+      const iframe = btn.nextElementSibling;
+      document.getElementById('tvOverlayFrame').src = iframe.src;
+      document.getElementById('tvOverlay').classList.add('active');
+    }
+
+    function closeTV() {
+      document.getElementById('tvOverlay').classList.remove('active');
+      document.getElementById('tvOverlayFrame').src = '';
+    }
+  </script>
 </body>
 </html>
