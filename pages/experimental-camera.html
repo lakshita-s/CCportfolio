@@ -18,7 +18,7 @@
     .fullscreen-btn {
       position: absolute;
       top: -24px;
-      left: calc(50% - 320px); /* lines up with left edge of 640px iframe */
+      left: 0; /* pinned to left of wrapper */
       font-family: "pixelify-sans", sans-serif;
       font-size: 11px;
       background: #8b2a2a;
@@ -40,13 +40,17 @@
       inset: 0;
       z-index: 4;
       background: black;
+      align-items: center;
+      justify-content: center;
     }
 
-    .tv-fullscreen-overlay.active { display: block; }
+    .tv-fullscreen-overlay.active {
+      display: flex; /* centers content rather than stretching */
+    }
 
     .tv-fullscreen-overlay iframe {
-      width: 100%;
-      height: 100%;
+      width: 640px;  /* keep sketch's natural size */
+      height: 480px;
       border: none;
     }
 
